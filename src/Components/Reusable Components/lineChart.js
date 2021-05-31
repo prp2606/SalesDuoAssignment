@@ -11,7 +11,6 @@ const LineChart = ({ label, data, title }) => {
             {
               label: title,
               fill: true,
-              // backgroundColor: gradientStroke,
               backgroundColor: "#e0d2f5",
               borderColor: "#6100ec",
               borderWidth: 2,
@@ -33,16 +32,6 @@ const LineChart = ({ label, data, title }) => {
           legend: {
             display: false,
           },
-          // tooltips: {
-          //   backgroundColor: "#f5f5f5",
-          //   titleFontColor: "#333",
-          //   bodyFontColor: "#666",
-          //   bodySpacing: 4,
-          //   xPadding: 12,
-          //   mode: "nearest",
-          //   intersect: 0,
-          //   position: "nearest",
-          // },
           responsive: true,
           scales: {
             xAxes: [

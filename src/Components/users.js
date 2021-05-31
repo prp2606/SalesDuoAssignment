@@ -19,12 +19,10 @@ const Users = () => {
             </CardTitle>
           </CardHeader>
           <CardBody className="cardBody">
-            {/* <Progress value="{yearlyProgress}" color="danger"/> */}
             <div id="progressBar">
               <div id="seven0"></div>
             </div>
           </CardBody>
-          {/* <CardFooter id="cardFooter">Yearly Goal</CardFooter> */}
         </Card>
       </div>
     </Base>

@@ -2,18 +2,12 @@ import React, { useEffect, useState } from "react";
 import Base from "./Reusable Components/base";
 
 import {
-  UncontrolledDropdown,
-  DropdownToggle,
-  DropdownItem,
-  DropdownMenu,
   Card,
   CardBody,
   CardHeader,
   CardFooter,
   CardTitle,
-  Progress,
   ButtonGroup,
-  Button,
 } from "reactstrap";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -242,8 +236,6 @@ const Dashboard = () => {
 
     // setYear(false);
     // setMonth(true);
-    // setLineYearsLabels(["", "", "", "", "", "", "", "", "", "", "", ""]);
-    // setLineYearsData([53, 20, 10, 80, 100, 45, 15, 20, 65, 25, 98, 2]);
   };
 
   const handelYearly = (e) => {
@@ -255,11 +247,6 @@ const Dashboard = () => {
 
     document.getElementById("btnMonth").classList.remove("activebtn");
     document.getElementById("btnYear").classList.add("activebtn");
-
-    // setYear(true);
-    // setMonth(false);
-    // setLineMonthsLabels(["", "", "", "", "", "", "", ""]);
-    // setLineMonthsData([53, 20, 10, 80, 100, 45, 15, 20]);
   };
 
   const handelIncoming = (e) => {
@@ -299,7 +286,6 @@ const Dashboard = () => {
                   </CardTitle>
                 </CardHeader>
                 <CardBody className="cardBody">
-                  {/* <Progress value="{yearlyProgress}" color="danger"/> */}
                   <div id="progressBar">
                     <div id="seven0"></div>
                     <div id="three0"></div>
@@ -328,7 +314,6 @@ const Dashboard = () => {
               <CardHeader className="cardHeader">
                 <div className="headAdjust">
                   <h5>Balance</h5>
-                  {/* <p>Button</p> */}
                   <ButtonGroup className="btnGrp">
                     <button
                       type="button"
@@ -450,28 +435,3 @@ const Dashboard = () => {
 };
 
 export default Dashboard;
-
-{
-  /* <UncontrolledDropdown>
-        <DropdownToggle
-          caret
-          className="btn-icon"
-          color="link"
-          data-toggle="dropdown"
-          type="button"
-        >
-          <i className="tim-icons icon-settings-gear-63" />
-        </DropdownToggle>
-        <DropdownMenu aria-labelledby="dropdownMenuLink" right>
-          <DropdownItem href="#pablo" onClick={(e) => e.preventDefault()}>
-            Action
-          </DropdownItem>
-          <DropdownItem href="#pablo" onClick={(e) => e.preventDefault()}>
-            Another action
-          </DropdownItem>
-          <DropdownItem href="#pablo" onClick={(e) => e.preventDefault()}>
-            Something else
-          </DropdownItem>
-        </DropdownMenu>
-      </UncontrolledDropdown>{" "} */
-}

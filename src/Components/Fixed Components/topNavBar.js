@@ -1,17 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import {
-  Collapse,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem,
-  UncontrolledDropdown,
-  Navbar,
-  NavLink,
-  Nav,
-  NavbarToggler,
-} from "reactstrap";
-
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import {

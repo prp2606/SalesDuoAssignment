@@ -14,8 +14,6 @@ const BarChart = ({ label, data }) => {
               backgroundColor: "#0065fd",
               hoverBackgroundColor: "#6100ec",
               borderColor: "transparent",
-              // borderColor: "#d048b6",
-              // borderWidth: 2,
               borderDash: [],
               borderDashOffset: 0.0,
               data: data,
