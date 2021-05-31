@@ -17,7 +17,15 @@ const AGgrid = ({ columnDefs, rowData }) => {
   return (
     <div id="grid" className="ag-theme-balham">
       <AgGridReact
+        defaultColDef={{
+          editable: true,
+          resizable: true,
+          minWidth: 100,
+          flex: 1,
+        }}
         columnDefs={columnDefs}
+        suppressExcelExport={true}
+        popupParent={document.body}
         rowData={rowData}
         rowSelection="multiple"
         rowHeight={50}

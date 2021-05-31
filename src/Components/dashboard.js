@@ -447,11 +447,13 @@ const Dashboard = () => {
                   <button
                     className="btn activebtn"
                     onClick={() => {
-                      alert("Data Exported!");
+                      alert(
+                        "We can export grid data using CSV export property of Ag Grid"
+                      );
                     }}
                   >
                     <FontAwesomeIcon icon={faUpload} />
-                    <p>Export</p>
+                    <p id="export">Export</p>
                   </button>
                 </div>
                 <div id="lowerAG">
