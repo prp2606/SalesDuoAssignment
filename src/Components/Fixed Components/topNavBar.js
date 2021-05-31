@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import {
@@ -153,6 +153,15 @@ const TopBar = ({ endpoint }) => {
             </div>
           </div>
           <div id="menu">
+            <p
+              className="dropDownItem"
+              onClick={() => {
+                window.open("https://prp2606.github.io/", "_blank");
+              }}
+              style={{ cursor: "pointer" }}
+            >
+              My Portfolio
+            </p>
             <Link to="/dashboard">
               <p className="dropDownItem">Dashboard</p>
             </Link>

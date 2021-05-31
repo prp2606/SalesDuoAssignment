@@ -22,7 +22,7 @@ const LineChart = ({ label, data, title }) => {
               pointBorderWidth: 20,
               pointHoverRadius: 0,
               pointHoverBorderWidth: 15,
-              pointRadius: 0,
+              pointRadius: 4,
               data: data,
             },
           ],

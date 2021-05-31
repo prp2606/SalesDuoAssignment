@@ -25,12 +25,55 @@ const Dashboard = () => {
   const [users, setUsers] = useState();
   const [earnings, setEarnings] = useState();
   const [sales, setSales] = useState();
-  const [barLabels, setBarLabels] = useState();
-  const [barData, setBarData] = useState();
-  const [lineMonthsLabels, setLineMonthsLabels] = useState([]);
-  const [lineMonthsData, setLineMonthsData] = useState([]);
-  const [lineYearsLabels, setLineYearsLabels] = useState([]);
-  const [lineYearsData, setLineYearsData] = useState([]);
+  const [barLabels, setBarLabels] = useState(["", "", "", "", "", "", "", ""]);
+  const [barData, setBarData] = useState([30, 100, 30, 100, 60, 80, 50, 80]);
+  const [lineMonthsLabels, setLineMonthsLabels] = useState([
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+  ]);
+  const [lineMonthsData, setLineMonthsData] = useState([
+    53, 20, 10, 70, 32, 45, 55, 20, 15, 100, 48, 23,
+  ]);
+  const [lineYearsLabels, setLineYearsLabels] = useState([
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+  ]);
+  const [lineYearsData, setLineYearsData] = useState([
+    65, 55, 60, 55, 75, 90, 12, 58, 96, 102, 153, 85, 41, 175, 10, 3, 78, 96,
+    36, 24, 36, 145, 32, 78,
+  ]);
   const [increament, setIncreament] = useState({
     incomeInc: 6.9,
     usersInc: 6.9,
@@ -43,10 +86,125 @@ const Dashboard = () => {
   const [month, setMonth] = useState(true);
   const [year, setYear] = useState(false);
 
-  const [rowData1, setRowData1] = useState([]);
-  const [columnDefs1, setColumnDefs1] = useState([]);
-  const [rowData2, setRowData2] = useState([]);
-  const [columnDefs2, setColumnDefs2] = useState([]);
+  const [rowData1, setRowData1] = useState([
+    {
+      IID: "M06359DR0",
+      date: "08.04.2021",
+      desc: "Code 5928MD01",
+      status: "Completed",
+      descs: "$2500.00",
+    },
+    {
+      IID: "M06359DR1",
+      date: "05.04.2021",
+      desc: "Code 5928OP11",
+      descs: "$2410.00",
+      status: "Completed",
+    },
+    {
+      IID: "M06359DR3",
+      date: "04.04.2021",
+      desc: "Code 6928MD01",
+      descs: "$250.00",
+      status: "Completed",
+    },
+    {
+      IID: "M06359DR4",
+      date: "08.03.2021",
+      desc: "Code 8168MD01",
+      descs: "$6358.00",
+      status: "Completed",
+    },
+    {
+      IID: "M06359DR8",
+      date: "14.04.2021",
+      desc: "Code 7228MD01",
+      descs: "$5263.00",
+      status: "Completed",
+    },
+  ]);
+
+  const [columnDefs1, setColumnDefs1] = useState([
+    {
+      headerName: "Invoice Id",
+      field: "IID",
+      filter: true,
+      sortable: true,
+      checkboxSelection: true,
+    },
+    { headerName: "Date", field: "date", filter: true, sortable: true },
+    {
+      headerName: "Description",
+      field: "desc",
+      filter: true,
+      sortable: true,
+    },
+    {
+      headerName: "Descriptions",
+      field: "descs",
+      filter: true,
+      sortable: true,
+    },
+    { headerName: "Status", field: "status", filter: true, sortable: true },
+  ]);
+
+  const [rowData2, setRowData2] = useState([
+    {
+      IID: "M06359DR8",
+      date: "14.04.2021",
+      from: "Client17",
+      status: "Not Seen",
+      code: "7228MD01",
+    },
+    {
+      IID: "M06359DR0",
+      date: "08.04.2021",
+      from: "Client04",
+      status: "Not Seen",
+      code: "7228MD01",
+    },
+
+    {
+      IID: "M06359DR4",
+      date: "08.03.2021",
+      from: "Client10",
+      status: "Seen",
+      code: "7228MD01",
+    },
+    {
+      IID: "M06359DR1",
+      date: "05.04.2021",
+      from: "Client02",
+      status: "Not Seen",
+      code: "7228MD01",
+    },
+    {
+      IID: "M06359DR3",
+      date: "04.04.2021",
+      from: "Client01",
+      status: "Seen",
+      code: "7228MD01",
+    },
+  ]);
+
+  const [columnDefs2, setColumnDefs2] = useState([
+    {
+      headerName: "Invoice Id",
+      field: "IID",
+      filter: true,
+      sortable: true,
+      checkboxSelection: true,
+    },
+    { headerName: "Date", field: "date", filter: true, sortable: true },
+    {
+      headerName: "Invoice From",
+      field: "from",
+      filter: true,
+      sortable: true,
+    },
+    { headerName: "Status", field: "status", filter: true, sortable: true },
+    { headerName: "Code", field: "code", filter: true, sortable: true },
+  ]);
 
   useEffect(() => {
     document.getElementById("monthsChart").style.display = "inline-block";
@@ -54,6 +212,49 @@ const Dashboard = () => {
 
     document.getElementById("invoicesBody").style.display = "none";
     document.getElementById("incomingBody").style.display = "inline-block";
+
+    const userCount = document.getElementById("userCount");
+    let progressDelay1 = 100;
+
+    for (let level = 0.0; level <= 97.5; level = level + 0.5) {
+      setTimeout(() => {
+        userCount.innerText = level + "0 %";
+      }, (progressDelay1 += 10));
+    }
+
+    const seven0 = document.getElementById("seven0");
+    let progressDelay5 = 100;
+
+    for (let level = 0; level <= 70; level++) {
+      setTimeout(() => {
+        seven0.style.width = `${level}%`;
+      }, (progressDelay5 += 1));
+    }
+
+    const incomeCount = document.getElementById("incomeCount");
+    let progressDelay2 = 100;
+
+    for (let level = 0.0; level <= 124575; level = level + 55) {
+      setTimeout(() => {
+        incomeCount.innerText = "$" + level + ".00";
+      }, (progressDelay2 += 0.1));
+    }
+    const earningCount = document.getElementById("earningCount");
+    let progressDelay3 = 100;
+
+    for (let level = 0.0; level <= 43.5; level = level + 0.5) {
+      setTimeout(() => {
+        earningCount.innerText = level + "0%";
+      }, (progressDelay3 += 10));
+    }
+    const salesCount = document.getElementById("salesCount");
+    let progressDelay4 = 100;
+
+    for (let level = 0.0; level <= 95425; level = level + 55) {
+      setTimeout(() => {
+        salesCount.innerText = "$" + level;
+      }, (progressDelay4 += 0.1));
+    }
 
     setIncome("$124,563.00");
     setYearlyProgress(70);
@@ -64,164 +265,9 @@ const Dashboard = () => {
     // setIncreament({ ...increament, salesInc: 13.5 });
 
     setUsers(94.2);
+
     setEarnings(43.41);
     setSales("$95,422");
-
-    setBarLabels(["", "", "", "", "", "", "", ""]);
-    setBarData([30, 100, 30, 100, 60, 80, 50, 80]);
-
-    setLineYearsLabels([
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-    ]);
-    setLineYearsData([
-      65, 55, 60, 55, 75, 90, 12, 58, 96, 102, 153, 85, 41, 175, 10, 3, 78, 96,
-      36, 24, 36, 145, 32, 78,
-    ]);
-    setLineMonthsLabels(["", "", "", "", "", "", "", "", "", "", "", ""]);
-    setLineMonthsData([53, 20, 10, 70, 32, 45, 55, 20, 15, 100, 48, 23]);
-
-    setColumnDefs1([
-      {
-        headerName: "Invoice Id",
-        field: "IID",
-        filter: true,
-        sortable: true,
-        checkboxSelection: true,
-      },
-      { headerName: "Date", field: "date", filter: true, sortable: true },
-      {
-        headerName: "Description",
-        field: "desc",
-        filter: true,
-        sortable: true,
-      },
-      {
-        headerName: "Descriptions",
-        field: "descs",
-        filter: true,
-        sortable: true,
-      },
-      { headerName: "Status", field: "status", filter: true, sortable: true },
-    ]);
-
-    setRowData1([
-      {
-        IID: "M06359DR0",
-        date: "08.04.2021",
-        desc: "Code 5928MD01",
-        status: "Completed",
-        descs: "$2500.00",
-      },
-      {
-        IID: "M06359DR1",
-        date: "05.04.2021",
-        desc: "Code 5928OP11",
-        descs: "$2410.00",
-        status: "Completed",
-      },
-      {
-        IID: "M06359DR3",
-        date: "04.04.2021",
-        desc: "Code 6928MD01",
-        descs: "$250.00",
-        status: "Completed",
-      },
-      {
-        IID: "M06359DR4",
-        date: "08.03.2021",
-        desc: "Code 8168MD01",
-        descs: "$6358.00",
-        status: "Completed",
-      },
-      {
-        IID: "M06359DR8",
-        date: "14.04.2021",
-        desc: "Code 7228MD01",
-        descs: "$5263.00",
-        status: "Completed",
-      },
-    ]);
-
-    setColumnDefs2([
-      {
-        headerName: "Invoice Id",
-        field: "IID",
-        filter: true,
-        sortable: true,
-        checkboxSelection: true,
-      },
-      { headerName: "Date", field: "date", filter: true, sortable: true },
-      {
-        headerName: "Invoice From",
-        field: "from",
-        filter: true,
-        sortable: true,
-      },
-      { headerName: "Status", field: "status", filter: true, sortable: true },
-      { headerName: "Code", field: "code", filter: true, sortable: true },
-    ]);
-
-    setRowData2([
-      {
-        IID: "M06359DR8",
-        date: "14.04.2021",
-        from: "Client17",
-        status: "Not Seen",
-        code: "7228MD01",
-      },
-      {
-        IID: "M06359DR0",
-        date: "08.04.2021",
-        from: "Client04",
-        status: "Not Seen",
-        code: "7228MD01",
-      },
-
-      {
-        IID: "M06359DR4",
-        date: "08.03.2021",
-        from: "Client10",
-        status: "Seen",
-        code: "7228MD01",
-      },
-      {
-        IID: "M06359DR1",
-        date: "05.04.2021",
-        from: "Client02",
-        status: "Not Seen",
-        code: "7228MD01",
-      },
-      {
-        IID: "M06359DR3",
-        date: "04.04.2021",
-        from: "Client01",
-        status: "Seen",
-        code: "7228MD01",
-      },
-    ]);
   }, []);
 
   const handelMonthly = (e) => {
@@ -281,7 +327,8 @@ const Dashboard = () => {
                 <CardHeader className="cardHeader">
                   <h5>Total Income</h5>
                   <CardTitle className="cardTitle">
-                    <span>{income}</span>
+                    {/* <span>{income}</span> */}
+                    <span id="incomeCount"></span>
                     <span className="increment">+{incomeInc}%</span>
                   </CardTitle>
                 </CardHeader>
@@ -299,7 +346,8 @@ const Dashboard = () => {
                 <CardHeader className="cardHeader">
                   <h5>New Users</h5>
                   <CardTitle className="cardTitle">
-                    <span>{users}%</span>
+                    <span id="userCount"></span>
+                    {/* <span id="userCount">{users}%</span> */}
                     <span className="increment">+{usersInc}%</span>
                   </CardTitle>
                 </CardHeader>
@@ -340,7 +388,8 @@ const Dashboard = () => {
                       <CardHeader className="cardHeader">
                         <h5>Earnings</h5>
                         <CardTitle className="cardTitle">
-                          <span>{earnings}%</span>
+                          <span id="earningCount"></span>
+                          {/* <span>{earnings}%</span> */}
                           <span className="increment">+{earningInc}%</span>
                         </CardTitle>
                       </CardHeader>
@@ -351,7 +400,8 @@ const Dashboard = () => {
                       <CardHeader className="cardHeader">
                         <h5>Sales Value</h5>
                         <CardTitle className="cardTitle">
-                          <span>{sales}%</span>
+                          <span id="salesCount"></span>
+                          {/* <span>{sales}%</span> */}
                           <span className="increment">+{salesInc}%</span>
                         </CardTitle>
                       </CardHeader>
