@@ -1,0 +1,256 @@
+/* .card,
+.cardHeader,
+.cardTitle,
+.increment,
+.cardBody,
+.cardFooter {
+  all: unset;
+} */
+
+#dashboard {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 20px 0px;
+}
+
+#charts {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+#leftCharts {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  width: 45%;
+  margin-right: 20px;
+}
+
+#leftUpperChart,
+#leftLowerChart {
+  width: 85%;
+  margin: 15px 0px;
+}
+
+#progressBar {
+  width: 100%;
+  height: 3px;
+  background-color: rgb(243, 243, 251);
+  border-radius: 5px;
+}
+
+#seven0 {
+  width: 70%;
+  height: 100%;
+  border-radius: 5px;
+  background-color: #6100ec;
+}
+
+#three0 {
+  width: 30%;
+  border-radius: 5px;
+  height: 100%;
+  background-color: rgb(243, 243, 251);
+}
+
+#rightCharts {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  width: 55%;
+  margin-left: 20px;
+}
+
+.card {
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.cardHeader > h5 {
+  font-weight: 100;
+  font-size: 12px;
+  opacity: 0.8;
+  margin-bottom: 8px;
+}
+
+.cardTitle {
+  font-weight: 900;
+  font-size: 27px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+#cardFooter {
+  margin-top: 10px;
+  opacity: 0.3;
+  font-size: 10px;
+}
+
+.increment {
+  background-color: rgb(62, 200, 133);
+  color: white;
+  border-radius: 15px;
+  padding: 5px 8px;
+  margin-left: 10px;
+  font-weight: 100;
+  font-size: 10px;
+}
+
+.headAdjust {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgb(209, 209, 209);
+  padding: 18px 23px;
+}
+
+.headAdjust > h5 {
+  font-size: 18px;
+  opacity: 1;
+}
+
+.btn {
+  background-color: transparent;
+  opacity: 0.8;
+  border: 1px solid black;
+  font-size: 10px;
+  padding: 5px 8px;
+  margin: 0px 2px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#rightCharts .card {
+  padding: 0;
+  width: 87%;
+}
+
+#cardTitleSpecial {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+}
+
+#earnings,
+#salesValue {
+  border: 1px solid rgb(209, 209, 209);
+  padding: 8px 20px;
+  border-radius: 3x;
+  /* width: 40%; */
+}
+
+#cardTitleSpecial .cardHeader > h5 {
+  font-size: 10px;
+  margin-bottom: 0px;
+}
+
+#cardTitleSpecial .cardTitle {
+  margin-bottom: 0px;
+}
+
+#rightCharts .cardBody > div {
+  width: 100%;
+}
+
+#monthsChart,
+#yearsChart {
+  width: 100%;
+  height: 250px;
+}
+
+#agGrids .card {
+  width: 100%;
+}
+
+#agGrids .cardBody {
+  width: 100%;
+}
+
+#agGrids .cardBody #incomingBody,
+#agGrids .cardBody #invoicesBody {
+  width: 100%;
+}
+
+#agGrids {
+  width: 87%;
+  margin: 40px 0px;
+  margin-bottom: 0px;
+  padding: 0%;
+}
+
+#agGrids .card {
+  width: 100%;
+  padding: 0%;
+}
+
+#agGrids .headAdjust {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding-bottom: 0%;
+  /* padding-top: 0%; */
+}
+
+#upperAG {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 10px;
+}
+
+#upperAG h5 {
+  font-size: 18px;
+}
+
+#upperAG .btn {
+  width: 65px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.activebtn {
+  opacity: 1;
+  color: white;
+  background-color: #6100ec;
+  border: transparent;
+}
+
+#lowerAG {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  margin-top: 10px;
+}
+
+#incoming,
+#invoices {
+  padding: 5px 12px;
+  opacity: 0.5;
+  font-weight: 700;
+  font-size: 12px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.activespan {
+  opacity: 1 !important;
+  color: #6100ec;
+  border-bottom: #6100ec 2px solid;
+}

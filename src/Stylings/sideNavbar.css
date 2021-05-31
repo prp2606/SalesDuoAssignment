@@ -1,0 +1,91 @@
+#sideBar {
+  height: 1040px;
+  width: 100%;
+  /* padding: 10px 20px; */
+  background-color: white;
+  border-right: 1px solid rgb(212, 212, 212);
+}
+
+#brandName {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 20px 25px;
+  border-bottom: 1px solid rgb(214, 214, 214);
+}
+
+#brandName > img {
+  background-color: #6100ec;
+  padding: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#brand {
+  padding: 0px 15px;
+  font-size: 16px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.barSection {
+  padding: 20px 20px;
+  width: 100%;
+}
+
+.barDesc {
+  font-size: 12px;
+  opacity: 0.5;
+}
+
+.barMain {
+  /* padding: 10px 0px; */
+  margin-top: 10px;
+  /* background-color: grey; */
+}
+
+.barMain li div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4px 6px;
+  /* background-color: hotpink; */
+  margin: 2px 0px;
+  border-radius: 4px;
+}
+
+.bar2 {
+  vertical-align: center;
+}
+
+.bar1 {
+  opacity: 0.7;
+}
+
+.barIcon {
+  font-size: 15px;
+  /* opacity: 0.5; */
+}
+
+.barText {
+  margin-left: 15px;
+  font-size: 13px;
+  /* letter-spacing: 0.4px; */
+  /* opacity: 0.6; */
+}
+
+#special {
+  font-size: 10px;
+  /* margin: auto; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 22px;
+  height: 22px;
+  color: white;
+  background-color: #6100ec;
+  border-radius: 50%;
+}
