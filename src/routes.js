@@ -30,7 +30,7 @@ const Routes = () => {
         <Route path="/dataList" exact component={DataList} />
         <Route path="/settings" exact component={Settings} />
         <Route path="/logOut" exact component={LogOut} />
-        <Redirect from="/" to="/dashboard" />
+        <Redirect from="*" to="/dashboard" />
       </Switch>
     </BrowserRouter>
   );
